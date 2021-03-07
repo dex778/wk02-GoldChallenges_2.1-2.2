@@ -1,1 +1,18 @@
 /* STYLE HERE */
+
+.imageOne{
+    display: flex;
+    justify-content: center;
+    border: 10px solid black;
+    border-radius: 20px;
+
+}
+
+.imageTwo{
+    display: flex;
+    justify-content: center;
+    border: 10px solid black;
+    border-radius: 20px;
+
+    
+}
