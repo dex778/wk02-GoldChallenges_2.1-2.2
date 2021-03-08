@@ -13,18 +13,34 @@
 */
 
 //NOTE: Write your code below and push back to your github branch.  SUBMIT YOUR GITHUB URL IN CANVAS
-
+const image1 = document.querySelector('#imageOne')//.src // these two variables are used to to retrieve my .html. This is where we use DOM manipulation to connect to my .js file. Here I'm "grabbing".
+const image2 = document.querySelector('#imageTwo')
 
     fetch('https://rickandmortyapi.com/api/character')
-    .then(res => res.json())
-    .then(json => {
+    .then ((res) => {  //here is where I am calling my API data.
+        return res.json() // Here is where I get it to "print" in a jsonified data to be read in the console.
+    })
+    
+    .then((json) => {  //.then takes up to 2 arguments. The first argument is a callback function for the resolved case of the promise. Here, it is taking the 'json' and 
         console.log(json);
-        rickAndMorty(json);
+        rickAndMorty(json); //here we are declaring the function which we will use write so that it does something with the data starting on line 29. json is the whole jsonified object.
     } ) 
     
-    function rickAndMorty(character){
-        let rick = character[0].name
-        let morty = character[1].name
+    function rickAndMorty(character){ //here, character is the parameter that will be used to pass the data we are grabbing from the json object that has been fetched from lines, 19-27.
+        let rick = character.results[0].image //in lines 30-31, I am grabbing two objects that I specifically want from the json and setting them to variables that will be later used. 
+        // console.log(character) to get the jsonified object. Character here is the same as line 26 json.
+        let morty = character.results[1].image// "Results" is the property inside the json I am using to grab the image links to be downloaded for them to show up on my screen.
+        image1.src = rick //here I am calling the variables that are using DOM. 
+        image2.src = morty
+
+        /* ALTERNATE WAY OF GRABBING HTML AND LINKING IT TO .JS */ 
+        // This wouldn't require lines 16 and 17.
+        // document.getElementById("imageOne").src = rick // 
+        // document.getElementById("imageTwo").src = morty
+
+        console.log(rick)
+        console.log(morty)
+        
     }
 
     
@@ -52,4 +68,4 @@
 //         spaceShips.appendChild(rocket);
 //     })
 // }
-*/)
+*/
