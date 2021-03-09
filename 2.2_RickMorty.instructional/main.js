@@ -13,6 +13,33 @@
 */
 
 //NOTE: Write your code below and push back to your github branch.  SUBMIT YOUR GITHUB URL IN CANVAS
+
+ 
+    const image1 = document.querySelector('#imageOne')
+    const image2 = document.querySelector('#imageTwo') 
+    
+    fetch('https://rickandmortyapi.com/api/character')
+    .then ((res) => {  
+        return res.json() 
+    })
+
+    .then((json) => {  
+        console.log(json);
+        rickAndMorty(json); 
+    } ) 
+
+    function rickAndMorty(character){ 
+        let rick = character.results[0].image 
+        let morty = character.results[1].image
+        image1.src = rick 
+        image2.src = morty
+        console.log(rick)
+        console.log(morty)
+        
+    }
+
+/* CODE WITH NOTES ATTACHED */
+/*
 const image1 = document.querySelector('#imageOne')//.src // these two variables are used to to retrieve my .html. This is where we use DOM manipulation to connect to my .js file. Here I'm "grabbing".
 const image2 = document.querySelector('#imageTwo')
 
@@ -38,34 +65,10 @@ const image2 = document.querySelector('#imageTwo')
         // document.getElementById("imageOne").src = rick // 
         // document.getElementById("imageTwo").src = morty
 
-        console.log(rick)
-        console.log(morty)
+       
+    //     console.log(rick)
+    //     console.log(morty)
         
-    }
+    // }
 
-    
-/*
-    
-
-// const baseURL = 'https://api.spacexdata.com/v2/rockets';
-// const searchForm = document.querySelector('form');
-// const spaceShips = document.querySelector('ul');
-// searchForm.addEventListener('submit', fetchSpace);
-// function fetchSpace(e){
-//     e.preventDefault();    
-//     fetch(baseURL)
-//       .then(result => result.json())
-//       .then(json => {
-//           console.log(json);
-//           displayRockets(json);
-//       })    
-// }
-
-// function displayRockets(rockets){
-//     rockets.forEach(r => {
-//         let rocket = document.createElement('li');
-//         rocket.innerText = r.name;
-//         spaceShips.appendChild(rocket);
-//     })
-// }
-*/
+    // */
