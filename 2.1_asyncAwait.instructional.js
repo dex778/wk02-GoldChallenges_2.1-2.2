@@ -10,18 +10,20 @@
    
     async function char (){
     let swapi = await fetch("https://swapi.dev/api/people/3/")
-    let second = await function jsonified () {
-        ((swapi) => {
-           return swapi.json
-        })
-    }
-    console.log(swapi);
+    let second = await swapi.json();
+    // console.log(swapi);
     console.log(second);
-     console.log("this should print last");
+    console.log("this should print last");
 
     }
 
     char();
+
+    // async function fetchQuote(){
+    //     const response =  await fetch(baseURL);
+    //     const json = await response.json();
+    //     console.log('Async/Await: ', json)
+    // }
 
   
 
