@@ -11,7 +11,7 @@
     async function char (){
     let swapi = await fetch("https://swapi.dev/api/people/3/")
     let second = await swapi.json();
-    // console.log(swapi);
+    console.log(swapi);
     console.log(second);
     console.log("this should print last");
 
